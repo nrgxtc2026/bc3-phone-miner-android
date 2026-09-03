@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/mainRoot"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7931A">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+        <ImageView android:layout_width="88dp" android:layout_height="88dp" android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo" android:contentDescription="BC3 logo" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+            android:text="BC3 Miner" android:textColor="#17202A" android:textSize="28sp" android:textStyle="bold" android:layout_marginBottom="20dp" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+            android:text="Created by nrgxtc" android:textColor="#5A3515" android:textSize="14sp" android:layout_marginBottom="16dp" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WORKER NAME" android:textColor="#5A3515" android:textStyle="bold" />
+        <EditText android:id="@+id/worker" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="HuaweiP20Pro" android:inputType="textNoSuggestions" android:textColor="#17202A" android:textColorHint="#8FA3BF" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="WALLET ADDRESS" android:textColor="#5A3515" android:textStyle="bold" />
+        <EditText android:id="@+id/wallet" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="BC3 wallet address" android:inputType="textNoSuggestions" android:textColor="#17202A" android:textColorHint="#8FA3BF" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="MINING POOL" android:textColor="#5A3515" android:textStyle="bold" />
+        <Spinner android:id="@+id/poolSelector" android:layout_width="match_parent" android:layout_height="52dp"
+            android:backgroundTint="#17202A" android:spinnerMode="dialog" />
+        <EditText android:id="@+id/pool" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Stratum server URL" android:inputType="textUri" android:textColor="#17202A" android:textColorHint="#8FA3BF" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="CPU THREADS" android:textColor="#5A3515" android:textStyle="bold" />
+        <Spinner android:id="@+id/performanceMode" android:layout_width="match_parent" android:layout_height="52dp"
+            android:backgroundTint="#17202A" android:spinnerMode="dialog" />
+        <EditText android:id="@+id/threads" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Threads" android:inputType="number" android:textColor="#17202A" android:textColorHint="#8FA3BF" />
+        <CheckBox android:id="@+id/donate" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Enable developer donation (2.5%: 90 seconds/hour)" android:textColor="#17202A" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="18dp" android:text="MINING SAFETY" android:textColor="#5A2500"
+            android:textSize="15sp" android:textStyle="bold" />
+        <CheckBox android:id="@+id/temperatureControl" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Pause when temperature is too high" android:textColor="#17202A" />
+        <TextView android:id="@+id/temperatureLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:text="Maximum temperature: 40 °C" android:textColor="#17202A" android:textSize="14sp" />
+        <SeekBar android:id="@+id/temperatureThreshold" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:max="25" android:progress="10" />
+
+        <TextView android:id="@+id/cooldownLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:text="Temperature cooldown before restart: 10 minutes" android:textColor="#17202A" android:textSize="14sp" />
+        <SeekBar android:id="@+id/cooldownMinutes" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:max="29" android:progress="9" />
+
+        <CheckBox android:id="@+id/batteryControl" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Pause when battery is low" android:textColor="#17202A" />
+        <TextView android:id="@+id/batteryLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:text="Minimum battery: 10%" android:textColor="#17202A" android:textSize="14sp" />
+        <SeekBar android:id="@+id/batteryThreshold" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:max="45" android:progress="5" />
+
+        <TextView android:id="@+id/batteryPauseLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:text="Battery charging pause: 60 minutes" android:textColor="#17202A" android:textSize="14sp" />
+        <SeekBar android:id="@+id/batteryPauseMinutes" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:max="119" android:progress="59" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/start" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Start mining" />
+            <Button android:id="@+id/stop" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Stop" />
+        </LinearLayout>
+        <TextView android:id="@+id/disclaimerLink" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="22dp" android:layout_marginBottom="18dp" android:gravity="center"
+            android:text="Software and hardware liability disclaimer" android:textColor="#123C73"
+            android:textSize="13sp" android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

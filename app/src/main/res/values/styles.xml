@@ -1,0 +1,10 @@
+<resources>
+    <style name="Theme.BC3Miner" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#FF9D19</item>
+        <item name="colorSecondary">#FFB347</item>
+        <item name="android:windowBackground">#F7931A</item>
+        <item name="android:colorAccent">#17202A</item>
+        <item name="android:navigationBarColor">#101927</item>
+        <item name="android:statusBarColor">#101927</item>
+    </style>
+</resources>

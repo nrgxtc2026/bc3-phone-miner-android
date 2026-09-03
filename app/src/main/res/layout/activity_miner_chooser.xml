@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/chooserRoot"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="24dp" android:gravity="center_horizontal"
+    android:background="#F7931A">
+    <ImageView android:layout_width="92dp" android:layout_height="92dp"
+        android:src="@drawable/logo" android:contentDescription="BC3 logo" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="BC3 Miner" android:textColor="#17202A" android:textSize="30sp"
+        android:textStyle="bold" android:layout_marginBottom="34dp" />
+    <Button android:id="@+id/createMiner" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Create miner" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="28dp" android:text="PREVIOUSLY CREATED MINER"
+        android:textColor="#5A3515" android:textStyle="bold" />
+    <Spinner android:id="@+id/savedMiners" android:layout_width="match_parent"
+        android:layout_height="56dp" android:spinnerMode="dialog" />
+    <TextView android:id="@+id/noSavedMiners" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="18dp"
+        android:text="No saved miners yet. Create your first miner above."
+        android:textColor="#17202A" android:gravity="center" />
+    <LinearLayout android:id="@+id/savedMinerActions" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal">
+        <Button android:id="@+id/startSavedMiner" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1" android:text="Start miner" />
+        <Button android:id="@+id/editSavedMiner" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1" android:text="Edit miner" />
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" android:gravity="center"
+        android:text="Not ready to mine? Rotate your device for network stats."
+        android:textColor="#5A3515" android:textSize="14sp" android:textStyle="bold" />
+    <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1" />
+    <TextView android:id="@+id/chooserDisclaimerLink" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="16dp" android:gravity="center"
+        android:text="EULA and software/hardware liability disclaimer"
+        android:textColor="#123C73" android:textSize="13sp" android:textStyle="bold" />
+</LinearLayout>

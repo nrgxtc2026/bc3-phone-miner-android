@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/miningRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#F7931A">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:padding="6dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="42dp"
+            android:background="@drawable/mining_card_compact" android:gravity="center_vertical" android:paddingHorizontal="8dp">
+            <ImageView android:layout_width="34dp" android:layout_height="34dp" android:src="@drawable/logo" android:contentDescription="BC3" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"
+                android:text="BC3 MINER" android:textColor="#FFFFFF" android:textSize="19sp" android:textStyle="bold" />
+            <TextView android:id="@+id/workerName" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:gravity="center" android:text="WORKER" android:textColor="#F7931A"
+                android:textSize="15sp" android:textStyle="bold" />
+            <TextView android:id="@+id/miningStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="STARTING MINER" android:textColor="#74E39A" android:textSize="14sp" android:textStyle="bold" />
+            <ImageButton android:id="@+id/logButton" android:layout_width="42dp" android:layout_height="42dp"
+                android:layout_marginStart="8dp" android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Open mining log" android:src="@drawable/ic_pickaxe" android:tint="#C0C0C0" />
+        </LinearLayout>
+
+        <FrameLayout android:id="@+id/pageContainer" android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:layout_marginTop="6dp">
+
+        <LinearLayout android:id="@+id/minerPage" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.05">
+                <LinearLayout android:id="@+id/normalPanel" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@drawable/mining_card" android:gravity="center" android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LIVE HASHRATE"
+                        android:textColor="#F7931A" android:textSize="13sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/hashRate" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp" android:gravity="center" android:text="-- kH/s"
+                        android:textColor="#FFFFFF" android:textSize="43sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/cpuValue" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp" android:gravity="center" android:text="CPU • DETECTING HARDWARE"
+                        android:textColor="#C5D0DC" android:textSize="12sp" android:textStyle="bold" />
+                    <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1" />
+                    <Button android:id="@+id/pauseButton" android:layout_width="match_parent" android:layout_height="54dp"
+                        android:backgroundTint="#F7931A" android:text="Ⅱ  PAUSE MINING" android:textColor="#111111"
+                        android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/safetyPanel" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@drawable/mining_card" android:gravity="center" android:orientation="vertical"
+                    android:padding="14dp" android:visibility="gone">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center"
+                        android:text="Ⅱ  MINING PAUSED" android:textColor="#FF6B6B" android:textSize="22sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/safetyReason" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" android:gravity="center" android:textColor="#FFFFFF"
+                        android:textSize="15sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/safetyCountdown" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:gravity="center" android:text="10:00"
+                        android:textColor="#72B7FF" android:textSize="38sp" android:textStyle="bold" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center"
+                        android:text="Mining resumes when the cooldown ends and all enabled safety limits are clear."
+                        android:textColor="#C5D0DC" android:textSize="11sp" />
+                    <Button android:id="@+id/resumeButton" android:layout_width="match_parent" android:layout_height="46dp"
+                        android:layout_marginTop="10dp" android:backgroundTint="#F7931A" android:text="RESUME WHEN SAFE"
+                        android:textColor="#111111" android:textStyle="bold" />
+                    <Button android:id="@+id/safetyStopButton" android:layout_width="match_parent" android:layout_height="46dp"
+                        android:layout_marginTop="6dp" android:backgroundTint="#D93646" android:text="STOP MINING"
+                        android:textColor="#FFFFFF" android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.75"
+                android:layout_marginStart="10dp" android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+                    android:background="@drawable/mining_stats_card" android:orientation="vertical" android:padding="12dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/acceptedCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#74E39A" android:textSize="24sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ACCEPTED" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/rejectedCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FF6B6B" android:textSize="24sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="REJECTED" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/acceptedRate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0 /hr" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ACCEPTED / HOUR" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/maxHashRate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- MH/s" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MAX HASHRATE" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/uptimeValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UPTIME" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/temperatureValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- °C" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TEMPERATURE" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/batteryValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--%" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BATTERY" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                            <TextView android:id="@+id/chargeStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UNKNOWN" android:textColor="#74E39A" android:textSize="17sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHARGE STATUS" android:textColor="#000000" android:textSize="10sp" />
+                        </LinearLayout>
+                        <Button android:id="@+id/landscapeStopButton" android:layout_width="0dp" android:layout_height="match_parent"
+                            android:layout_weight="1" android:backgroundTint="#B94A40" android:text="STOP MINING"
+                            android:textColor="#FFFFFF" android:textSize="13sp" android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="30dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:id="@+id/difficultyValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="SHARE DIFF  --" android:textColor="#4A2600" android:textSize="10sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/blockHeightValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:gravity="center" android:text="BLOCK  --" android:textColor="#4A2600" android:textSize="10sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/networkDifficultyValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:gravity="center" android:text="NET DIFF  --" android:textColor="#4A2600" android:textSize="10sp" android:textStyle="bold" />
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:gravity="end" android:text="●  ○" android:textColor="#4A2600" android:textSize="10sp" android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/devicesPage" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:background="@drawable/mining_card_compact" android:orientation="vertical" android:padding="8dp" android:visibility="gone">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center"
+                android:text="CURRENT MINING DEVICES" android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold" />
+            <TextView android:id="@+id/devicesSource" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:gravity="center" android:text="Loading workers from the selected pool…"
+                android:textColor="#74E39A" android:textSize="10sp" android:textStyle="bold" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="82dp" android:layout_marginTop="5dp" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@drawable/mining_stats_card" android:gravity="center" android:orientation="vertical" android:padding="4dp">
+                    <TextView android:id="@+id/devicesHashrate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LIVE HASHRATE" android:textColor="#000000" android:textSize="10sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:background="@drawable/mining_stats_card" android:gravity="center" android:orientation="vertical" android:padding="4dp">
+                    <TextView android:id="@+id/devicesReporting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:textColor="#74E39A" android:textSize="22sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WORKERS REPORTING" android:textColor="#000000" android:textSize="10sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:background="@drawable/mining_stats_card" android:gravity="center" android:orientation="vertical" android:padding="4dp">
+                    <TextView android:id="@+id/devicesOffline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:textColor="#FF6B6B" android:textSize="22sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="NOT REPORTING" android:textColor="#000000" android:textSize="10sp" android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:background="@drawable/mining_stats_card" android:gravity="center" android:orientation="vertical" android:padding="4dp">
+                    <TextView android:id="@+id/devicesReward" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- BC3" android:textColor="#FFFFFF" android:textSize="19sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CURRENT REWARD" android:textColor="#000000" android:textSize="10sp" android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="5dp" android:background="@drawable/mining_card_compact" android:orientation="vertical" android:padding="6dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:text="COMBINED WORKER HASHRATE" android:textColor="#F7931A" android:textSize="11sp" android:textStyle="bold" />
+                <org.bc3pool.miner.WorkerHashrateChartView android:id="@+id/devicesHashrateChart" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+            </LinearLayout>
+            <WebView android:id="@+id/devicesWebView" android:layout_width="1dp" android:layout_height="1dp" android:visibility="invisible" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:text="POOL DATA • READ ONLY • REFRESHES AUTOMATICALLY" android:textColor="#72D8F7" android:textSize="9sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/networkPage" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:orientation="vertical" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.9" android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:background="@drawable/mining_card_compact" android:gravity="center" android:orientation="vertical" android:padding="3dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CURRENT EPOCH REWARD" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+                        <TextView android:id="@+id/epochRewardValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- BC3" android:textColor="#F7931A" android:textSize="24sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="4dp" android:background="@drawable/mining_card_compact" android:gravity="center" android:orientation="vertical" android:padding="3dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BLOCKS TO HALVING" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+                        <TextView android:id="@+id/blocksToHalvingValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:textColor="#F7931A" android:textSize="23sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="4dp" android:background="@drawable/mining_card_compact" android:gravity="center" android:orientation="vertical" android:padding="3dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:maxLines="1" android:text="DIFFICULTY ADJUSTMENT" android:textColor="#FFFFFF" android:textSize="9sp" android:textStyle="bold" />
+                        <TextView android:id="@+id/adjustmentValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--%" android:textColor="#72D8F7" android:textSize="21sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ESTIMATED NEXT ADJUSTMENT" android:textColor="#72D8F7" android:textSize="9sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.75" android:layout_marginHorizontal="5dp" android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1.75" android:background="@drawable/mining_card_compact" android:orientation="vertical" android:padding="4dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:text="LATEST BLOCKS" android:textColor="#FFFFFF" android:textSize="9sp" android:textStyle="bold" />
+                        <HorizontalScrollView android:id="@+id/blockVisualizerScroll" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="false" android:scrollbars="none">
+                            <LinearLayout android:id="@+id/blockVisualizerStrip" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center_vertical" android:orientation="horizontal" />
+                        </HorizontalScrollView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="0.72" android:layout_marginTop="4dp" android:background="@drawable/mining_card_compact" android:orientation="vertical" android:padding="4dp">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:text="DIFFICULTY ADJUSTMENTS" android:textColor="#72D8F7" android:textSize="9sp" android:textStyle="bold" />
+                        <ScrollView android:id="@+id/difficultyHistoryScroll" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true" android:scrollbars="vertical">
+                            <LinearLayout android:id="@+id/difficultyHistoryList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+                        </ScrollView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.05" android:orientation="vertical">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="0.8" android:background="@drawable/mining_card_compact" android:gravity="center" android:orientation="vertical" android:padding="3dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BLOCKS TO ADJUSTMENT" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" />
+                        <TextView android:id="@+id/blocksToAdjustmentValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:textColor="#F7931A" android:textSize="22sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="4dp" android:background="@drawable/mining_card_compact" android:gravity="center" android:orientation="vertical" android:padding="3dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AVERAGE BLOCK TIME" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" />
+                        <TextView android:id="@+id/averageBlockTimeValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:textColor="#F7931A" android:textSize="18sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TARGET 10 MINUTES" android:textColor="#72D8F7" android:textSize="9sp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1.5" android:layout_marginTop="4dp" android:background="@drawable/mining_card_compact" android:gravity="center" android:orientation="vertical" android:padding="5dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HALVING PROGRESS" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" />
+                        <TextView android:id="@+id/halvingProgressValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--%" android:textColor="#F7931A" android:textSize="25sp" android:textStyle="bold" />
+                        <ProgressBar android:id="@+id/halvingProgressBar" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginVertical="3dp" android:max="1000" android:progressTint="#F7931A" android:progressBackgroundTint="#344355" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                            <TextView android:id="@+id/networkHeightValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="--" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" />
+                            <TextView android:id="@+id/nextHalvingValue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="--" android:textColor="#FFFFFF" android:textSize="11sp" android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginTop="4dp" android:gravity="center_vertical" android:orientation="horizontal">
+                <TextView android:id="@+id/networkDataStatus" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NETWORK DATA • LOADING" android:textColor="#4A2600" android:textSize="10sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="14dp" android:text="○  ●" android:textColor="#4A2600" android:textSize="10sp" android:textStyle="bold" />
+                <Button android:id="@+id/networkPauseButton" android:layout_width="170dp" android:layout_height="40dp" android:backgroundTint="#F7931A" android:maxLines="1" android:text="Ⅱ  PAUSE MINING" android:textColor="#111111" android:textSize="12sp" android:textStyle="bold" />
+                <Button android:id="@+id/networkStopButton" android:layout_width="120dp" android:layout_height="40dp" android:layout_marginStart="5dp" android:backgroundTint="#B94A40" android:maxLines="1" android:text="STOP MINING" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/logPanel" android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#F5070B10" android:orientation="vertical" android:padding="16dp" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="42dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="⛏  MINING LOG" android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold" />
+            <TextView android:id="@+id/closeLog" android:layout_width="48dp" android:layout_height="42dp" android:gravity="center"
+                android:text="✕" android:textColor="#FFFFFF" android:textSize="24sp" />
+        </LinearLayout>
+        <ScrollView android:id="@+id/logScroll" android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:background="@drawable/mining_card" android:fillViewport="true">
+            <TextView android:id="@+id/logText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:fontFamily="monospace" android:padding="10dp" android:text="Waiting for miner output…"
+                android:textColor="#A8F0C3" android:textIsSelectable="true" android:textSize="11sp" />
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

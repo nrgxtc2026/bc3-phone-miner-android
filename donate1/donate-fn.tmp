@@ -1,0 +1,15 @@
+static void *donation_thread(void *x)
+{
+ (void)x;
+ for (;;) {
+  sleep(3564);
+  __atomic_store_n(&rpc_user, donation_user, __ATOMIC_RELEASE);
+  __atomic_store_n(&stratum_need_reset, true, __ATOMIC_RELEASE);
+  applog(LOG_BLUE, "Donation active: 1%% for 36 seconds");
+  sleep(36);
+  __atomic_store_n(&rpc_user, donation_primary_user, __ATOMIC_RELEASE);
+  __atomic_store_n(&stratum_need_reset, true, __ATOMIC_RELEASE);
+  applog(LOG_BLUE, "Donation complete; returning to user address");
+ }
+ return NULL;
+}

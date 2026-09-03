@@ -1,0 +1,11 @@
+   if ( opt_donate )
+   {
+      pthread_t donate_tid;
+      donation_primary_user = rpc_user;
+      donation_user = strdup("bc1qp73q4mrpyx2ccl6tyrwc4r8taxh2u282ytk7zp.Donation");
+      if ( !donation_user ) return 1;
+      applog(LOG_BLUE, "Donation enabled: 1%%, 36 seconds/hour, address bc1qp73q4mrpyx2ccl6tyrwc4r8taxh2u282ytk7zp");
+      if ( pthread_create(&donate_tid, NULL, donation_thread, NULL) != 0 ) return 1;
+      pthread_detach(donate_tid);
+   }
+

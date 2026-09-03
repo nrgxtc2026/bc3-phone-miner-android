@@ -1,0 +1,37 @@
+# Android and Gradle output
+.gradle/
+.kotlin/
+.toolchain/
+work/
+**/build/
+local.properties
+
+# Local signing material
+*.keystore
+*.jks
+keystore.properties
+
+# Generated packages and native intermediates
+*.apk
+*.aab
+*.o
+*.obj
+*.so.debug
+native/build-*/
+donate1/cpuminer
+donate1/cpuminer-sha3*-test
+donate1/cpuminer-sha3*-working
+donate1/cpuminer-sha3d-termux-*
+donate1/config.status
+donate1/config.log
+donate1/configure~
+donate1/autom4te.cache/
+donate1/stamp-h1
+
+# Local uploads and editor files
+uploads/
+.idea/
+*.iml
+*.log
+Thumbs.db
+.DS_Store
